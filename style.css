@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+html, body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    font-family: "Roboto", sans-serif; /* 使用Roboto字体 */
+    background-color: #1a237e; /* 深蓝色背景 */
+    color: #ffffff; /* 白色字体 */
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    background-color: #1a237e; /* 深蓝色背景 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 10vh;
+    transition: transform 0.5s ease;
+    color: #ffffff; /* 白色字体 */
+    transform: translateY(-200px) scale(1);
+}
+
+#game {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-over * {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    color: #ffffff; /* 白色字体 */
+}
+
+.game-over h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+}
+
+.game-ready {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.game-ready #start-button {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    border: 3px solid #ffffff; /* 白色边框 */
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #ffffff; /* 白色字体 */
+    font-size: 30px;
+}
+
+#instructions {
+    position: absolute;
+    width: 100%;
+    top: 16vh;
+    left: 0;
+    text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    color: #ffffff; /* 白色字体 */
+}
+
+#instructions.hide {
+    opacity: 0 !important;
+}
+
+#container.playing #score,
+#container.resetting #score {
+    transform: translateY(0px) scale(1);
+}
+
+#container.playing #instructions {
+    opacity: 1;
+}
+
+#container.ready .game-ready #start-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#container.ended #score {
+    transform: translateY(6vh) scale(1.5);
+}
+
+#container.ended .game-over * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#container.ended .game-over p {
+    transition-delay: 0.3s;
+}
+
+#game-intro {
+    position: absolute;
+    top: 10%;
+    font-size: 24px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    line-height: 1.5;
+}
